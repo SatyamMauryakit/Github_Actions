@@ -7,19 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: checkout the code
-       run: echo"Code clone in github"
+       run: echo "Code clone in github"
    build:
     runs-on: ubuntu-latest
     steps:
     - name: build the docker container
-      run: echo"build the docker images"
+      run: echo "build the docker images"
    test:
     runs-on: ubuntu-latest
     steps:
     - name: testing the code...
-      run: echo"testing the container" 
+      run: echo "testing the container" 
    deploy:
     runs-on: ubuntu-latest
     steps:
     - name: deploy the aws
-      run: echo"deploy the code in ec2"
+      run: echo "deploy the code in ec2"
