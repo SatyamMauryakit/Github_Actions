@@ -3,72 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Bean & Brown Cafe</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f8f5f2;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f8f5f2;
+color:#333;
+}
+
+/* HEADER */
 
 header{
-    background:#3e2723;
-    color:white;
-    padding:20px;
-    text-align:center;
+background:#3e2723;
+color:white;
+padding:25px;
+text-align:center;
 }
 
+header h1{
+font-size:40px;
+letter-spacing:2px;
+}
+
+/* NAVBAR */
+
 nav{
-    background:#5d4037;
-    padding:10px;
-    text-align:center;
+position:sticky;
+top:0;
+background:#5d4037;
+padding:12px;
+z-index:1000;
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+list-style:none;
+}
+
+nav ul li{
+margin:0 20px;
 }
 
 nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
 }
+
+nav a:hover{
+color:#ffd54f;
+}
+
+/* HERO */
 
 .hero{
-    background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover;
-    height:400px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-size:40px;
-    font-weight:bold;
+height:500px;
+background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
 }
+
+.hero h2{
+font-size:50px;
+margin-bottom:20px;
+animation:fadeIn 2s ease;
+}
+
+.hero button{
+padding:12px 25px;
+border:none;
+background:#ff9800;
+color:white;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.hero button:hover{
+background:#e68900;
+transform:scale(1.1);
+}
+
+/* SECTION */
 
 .section{
-    padding:40px;
-    text-align:center;
+padding:60px 20px;
+text-align:center;
 }
 
+.section h2{
+font-size:32px;
+margin-bottom:20px;
+color:#3e2723;
+}
+
+/* MENU */
+
 .menu{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+margin-top:30px;
 }
 
 .menu-item{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    width:200px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+background:white;
+padding:25px;
+border-radius:10px;
+width:220px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:.3s;
 }
 
-footer{
-    background:#3e2723;
-    color:white;
-    text-align:center;
-    padding:15px;
+.menu-item:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
+
+.menu-item h3{
+margin-bottom:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.gallery img{
+width:250px;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.1);
+}
+
+/* CONTACT */
+
+.contact{
+background:#fff3e0;
+}
+
+/* FOOTER */
+
+footer{
+background:#3e2723;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h2{
+font-size:35px;
+}
+
+.menu{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
 </style>
 </head>
 
@@ -76,32 +216,39 @@ footer{
 
 <header>
 <h1>Bean & Brown Cafe</h1>
-<p>Fresh Coffee • Delicious Food</p>
+<p>Fresh Coffee • Delicious Food • Cozy Vibes</p>
 </header>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Menu</a>
-<a href="#">Contact</a>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
-<div class="hero">
-Welcome to Bean & Brown Cafe
-</div>
+<section class="hero" id="home">
+<h2>Welcome to Bean & Brown Cafe</h2>
+<button onclick="scrollMenu()">Explore Menu</button>
+</section>
 
-<section class="section">
+<section class="section" id="about">
 <h2>About Our Cafe</h2>
 <p>
 Bean & Brown Cafe is a cozy place where you can enjoy fresh coffee,
-delicious snacks, and a relaxing atmosphere with friends and family.
+delicious snacks and a relaxing atmosphere with your friends and family.
+We serve freshly brewed coffee, burgers, pizzas and tasty snacks.
 </p>
 </section>
 
-<section class="section">
+<section class="section" id="menu">
+
 <h2>Our Menu</h2>
 
 <div class="menu">
+
 <div class="menu-item">
 <h3>Cappuccino</h3>
 <p>₹120</p>
@@ -121,19 +268,66 @@ delicious snacks, and a relaxing atmosphere with friends and family.
 <h3>Pizza</h3>
 <p>₹200</p>
 </div>
+
+<div class="menu-item">
+<h3>Pasta</h3>
+<p>₹180</p>
+</div>
+
+<div class="menu-item">
+<h3>Chocolate Shake</h3>
+<p>₹160</p>
+</div>
+
 </div>
 
 </section>
 
-<section class="section">
+<section class="section" id="gallery">
+
+<h2>Cafe Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+<img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814">
+<img src="https://images.unsplash.com/photo-1463797221720-6b07e6426c24">
+
+</div>
+
+</section>
+
+<section class="section contact" id="contact">
+
 <h2>Contact Us</h2>
+
 <p>📍 Chobe Tola, Infront of Anandeshwer Mahadev Mandir</p>
 <p>📞 700749XXXX</p>
+
+<br>
+
+<button onclick="orderAlert()">Order Now</button>
+
 </section>
 
 <footer>
+
 <p>© 2026 Bean & Brown Cafe | All Rights Reserved</p>
+
 </footer>
+
+<script>
+
+function scrollMenu(){
+document.getElementById("menu").scrollIntoView({behavior:"smooth"});
+}
+
+function orderAlert(){
+alert("Thank you for visiting Bean & Brown Cafe ☕");
+}
+
+</script>
 
 </body>
 </html>
