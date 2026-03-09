@@ -1,15 +1,18 @@
-name: Deploy flask app
+name: Deploy Flask App
+
 on:
   workflow_dispatch:
-  jobs:
-   
-   deploy:
-    environment:
-    DOCKER_USERNAME: satyammaurya
+
+jobs:
+  deploy:
     runs-on: self-hosted
+
+    env:
+      DOCKER_USERNAME: satyammaurya
+
     steps:
-     - name: Checkout code
-       uses: actions/checkout@v4
-     - name: Deploy with docker compose
-    run:  
-          docker compose -f .github/workflows/docker_compose.yml up -d
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy with Docker Compose
+        run: docker compose -f .github/workflows/docker_compose.yml up -d
