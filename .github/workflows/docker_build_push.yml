@@ -24,4 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: satyammaurya/github-action-1:latest
+          tags: 
+           ${{ vars.DOCKER_USERNAME }}/github-action-1:${{ github.ref_name }}
+            ${{ vars.DOCKER_USERNAME }}/github-action-1:latest
+            ${{ vars.DOCKER_USERNAME }}/github-action-1:${{ github.sha }}
