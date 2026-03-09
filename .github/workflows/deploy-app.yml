@@ -9,11 +9,12 @@ jobs:
     runs-on: self-hosted
 
     env:
-      DOCKER_USERNAME: satyammaurya
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Deploy with Docker Compose
-        run: docker compose -f docker-compose.yml up -d
+        run: docker compose down && docker compose up -d --build --force-recreate
