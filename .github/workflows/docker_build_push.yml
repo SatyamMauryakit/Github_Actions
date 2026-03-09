@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: satyammaurya/github-actions:latest
+          tags: satyammaurya/github-action-1:latest
