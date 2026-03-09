@@ -1,0 +1,7 @@
+services:
+
+
+web: 
+ image: ${DOCKER_USERNAME}/github-actions:latest
+ports:
+   - "80:80"
