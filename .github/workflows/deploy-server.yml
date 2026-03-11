@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: SSH to Pro server
         uses: appleboy/ssh-action@master
         with:
@@ -18,6 +19,7 @@ jobs:
           script: |
             echo "Starting deployment..."
             mkdir -p devops
+
       - name: Copy the docker-compose file
         uses: appleboy/scp-action@v1
         with:
@@ -26,6 +28,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "docker-compose.yml"
           target: "~/devops/docker-compose.yml"
+
       - name: SSH to prod and run the app
         uses: appleboy/ssh-action@master
         with:
@@ -38,7 +41,5 @@ jobs:
             sudo usermod -aG docker $USER && newgrp docker
             export DOCKER_USERNAME=${{ vars.DOCKER_USERNAME }}
             export DOCKER_TAG=${{ github.event.workflow_run.head_sha }}
-            echo ${{secrets.DOCKERHUB_TOKEN}} | docker login -u ${{ vars.DOCKER_USERNAME }} cd ~/devops && docker-compose down && docker-compose up -d --build --force-recreate
-
-
-      
+            echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ vars.DOCKER_USERNAME }} --password-stdin
+            cd ~/devops && docker-compose down && docker-compose up -d --build --force-recreate
