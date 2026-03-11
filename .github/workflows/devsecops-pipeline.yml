@@ -14,3 +14,5 @@ jobs:
 
   secrets-scan:
     uses: ./.github/workflows/secrets-scan.yml
+  docker-lint:
+    uses: ./.github/workflows/docker-lint.yml
