@@ -5,12 +5,12 @@ jobs:
   deploy:
     
 
-    uses: ./github/workflows/code-quality.yml
+    uses: ./.github/workflows/code-quality.yml
 
   dependency-scan:
-    uses: ./github/workflows/dependencies.yml
+    uses: ./.github/workflows/dependencies.yml
 
   secrets-scan:
-    uses: ./github/workflows/secrets-scan.yml 
+    uses: ./.github/workflows/secrets-scan.yml 
 
   
