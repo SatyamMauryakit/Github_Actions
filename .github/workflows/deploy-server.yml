@@ -36,6 +36,7 @@ jobs:
                 key: ${{ secrets.EC2_SSH_KEY }}
                 source: docker-compose.yml
                 target: ~/devops
+                overwrite: true
                 
             - name: SSH to Prod server & run the app
               uses: appleboy/ssh-action@v1.0.3
