@@ -1,18 +1,21 @@
 name: Image Scan
-on: 
- worrkflow_call:
+
+on:
+  workflow_call:
+
 jobs:
   image-scanner:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
+
     steps:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Trivy Scan
         uses: aquasecurity/trivy-action@0.33.1
         with:
-         severity: 'CRITICAL'
-         exit-code: '1'
-      
+          severity: 'CRITICAL'
+          exit-code: '1'

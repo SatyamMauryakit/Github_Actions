@@ -1,15 +1,18 @@
-# Scan the docker file for issues & CVEs 
+# Scan the docker file for issues & CVEs
 name: Docker scan
-on: 
- workflow_call:
+
+on:
+  workflow_call:
+
 jobs:
   validate-dockerfile:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
-   - name: Checkout code
-     uses: actions/checkout@v4
-   - name: Validate Dockerfile
-     uses: hadolint/hadolint-action@v3.1.0
-     with:
-      dockerfile: Dockerfile
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
