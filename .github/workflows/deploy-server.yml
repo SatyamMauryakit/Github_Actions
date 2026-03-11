@@ -26,7 +26,8 @@ jobs:
                  echo "Installing required packages & folders"
                  sudo apt-get update && sudo apt-get install docker.io docker-compose-v2 -y
                  sudo usermod -aG docker $USER
-                 mkdir -p devops
+                 rm -rf ~/devops/docker-compose.yml
+                 mkdir -p ~/devops
 
             - name: Copy the docker-compose file
               uses: appleboy/scp-action@v1
