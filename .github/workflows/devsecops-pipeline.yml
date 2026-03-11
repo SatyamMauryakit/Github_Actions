@@ -18,3 +18,4 @@ jobs:
     uses: ./.github/workflows/docker-lint.yml
   build-image:
     uses: ./.github/workflows/docker_build_push.yml
+    secrets: inherit
