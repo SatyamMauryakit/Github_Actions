@@ -1,2 +1,20 @@
 # package - issue ya verlnerablity in code
+# pip audit
 name: Dependency Scan
+on: 
+  workflow_call:
+jobs:
+ dependency-check:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python 3.12 
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+    - name: Pip Dependency Audit
+      run: pip install pip-audit
+    - name: Audit dependencies (alternative)
+      run: pip-audit -r requirements.txt
