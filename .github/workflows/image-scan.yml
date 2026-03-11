@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v4
         with:
           username: ${{ vars.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Trivy Scan
         uses: aquasecurity/trivy-action@0.33.1
