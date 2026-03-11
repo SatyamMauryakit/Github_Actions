@@ -3,459 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bean & Brown Cafe - Best Coffee in Town</title>
-<meta name="description" content="Bean & Brown Cafe - Fresh coffee, delicious food, cozy atmosphere in Chobe Tola">
-<link rel="icon" href="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=32&h=32&fit=crop">
+
+<title>Bean & Brown Cafe</title>
+
 <style>
-:root {
-  --primary-color: #3e2723;
-  --secondary-color: #5d4037;
-  --accent-color: #ff9800;
-  --accent-hover: #f57c00;
-  --text-light: #333;
-  --text-dark: #fff;
-  --bg-light: #f8f5f2;
-  --bg-card: #fff;
-  --shadow: 0 8px 32px rgba(0,0,0,0.1);
-  --border-radius: 12px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+:root{
+--coffee:#3e2723;
+--coffee2:#5d4037;
+--accent:#ff9800;
+--light:#f8f5f2;
+--white:#fff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-light);
-  background: var(--bg-light);
-  transition: var(--transition);
+body{
+background:var(--light);
+color:#333;
+scroll-behavior:smooth;
 }
 
-body.dark {
-  --text-light: #e0e0e0;
-  --bg-light: #121212;
-  --bg-card: #1e1e1e;
-  --primary-color: #1a0000;
-  --secondary-color: #2a1f15;
-}
+/* Scroll Progress */
 
-/* HEADER */
-header {
-  background: var(--primary-color);
-  color: var(--text-dark);
-  padding: 1.5rem;
-  text-align: center;
-  position: relative;
-  box-shadow: var(--shadow);
-}
-
-header h1 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-header p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-.clock {
-  font-size: 1rem;
-  margin: 1rem 0;
-  font-weight: 500;
+#progress{
+position:fixed;
+top:0;
+left:0;
+height:5px;
+background:var(--accent);
+width:0%;
+z-index:999;
 }
 
 /* NAVBAR */
-nav {
-  background: var(--secondary-color);
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+
+nav{
+background:var(--coffee);
+color:white;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:15px;
+position:sticky;
+top:0;
+z-index:99;
 }
 
-nav a {
-  color: var(--text-dark);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  position: relative;
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
 }
 
-nav a:hover, nav a.active {
-  background: var(--accent-color);
-  color: #000;
-  transform: translateY(-2px);
+nav a:hover{
+color:var(--accent);
 }
 
 /* HERO */
-.hero {
-  height: clamp(400px, 50vh, 500px);
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-              url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3") center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: var(--text-dark);
-  text-align: center;
-  padding: 2rem;
+
+.hero{
+height:90vh;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1500&q=80");
+background-size:cover;
+background-position:center;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: 1rem;
-  font-weight: 700;
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
 }
 
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
+.btn{
+padding:12px 30px;
+background:var(--accent);
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
 }
 
-/* BUTTONS */
-.btn {
-  padding: 1rem 2rem;
-  border: none;
-  background: var(--accent-color);
-  color: #000;
-  cursor: pointer;
-  border-radius: var(--border-radius);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(255,152,0,0.3);
-  text-decoration: none;
-  display: inline-block;
+.btn:hover{
+transform:scale(1.05);
 }
 
-.btn:hover {
-  background: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255,152,0,0.4);
+/* SECTION */
+
+.section{
+padding:80px 10%;
+text-align:center;
 }
 
-.btn-secondary {
-  background: transparent;
-  color: var(--text-dark);
-  border: 2px solid var(--text-dark);
-  box-shadow: none;
-}
-
-.btn-secondary:hover {
-  background: var(--text-dark);
-  color: var(--accent-color);
-}
-
-/* SECTIONS */
-.section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--accent-color), #ff6f00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.section h2{
+font-size:40px;
+margin-bottom:30px;
 }
 
 /* MENU */
-.menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+
+.menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
-.menu-item {
-  background: var(--bg-card);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+transition:.3s;
 }
 
-.menu-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-color), #ff6f00);
+.card:hover{
+transform:translateY(-10px);
 }
 
-.menu-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+/* STATS */
+
+.stats{
+background:var(--coffee);
+color:white;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px;
+padding:60px 10%;
+text-align:center;
 }
 
-.menu-item h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
+.stat h3{
+font-size:45px;
 }
 
-.menu-item .price {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  margin: 0.5rem 0 1rem;
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.menu-item p {
-  color: #666;
+.gallery img{
+width:100%;
+border-radius:10px;
+transition:.3s;
 }
 
-/* REVIEWS */
-.reviews-container {
-  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-  padding: 3rem;
-  border-radius: var(--border-radius);
-  margin: 3rem auto;
-  max-width: 800px;
-  box-shadow: var(--shadow);
+.gallery img:hover{
+transform:scale(1.05);
 }
 
-.review {
-  font-size: 1.3rem;
-  font-style: italic;
-  margin-bottom: 1rem;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* FORM */
+
+form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
-/* CONTACT */
-.contact-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.contact-item {
-  background: var(--bg-card);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-}
-
-.contact-item strong {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
+input,textarea{
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
 /* FOOTER */
-footer {
-  background: var(--primary-color);
-  color: var(--text-dark);
-  padding: 2rem;
-  text-align: center;
-  margin-top: 4rem;
+
+footer{
+background:var(--coffee);
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px;
 }
 
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .section {
-    padding: 2rem 1rem;
-  }
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
 }
+
+/* SCROLL TOP */
+
+#topBtn{
+position:fixed;
+bottom:90px;
+right:25px;
+background:var(--accent);
+border:none;
+padding:12px;
+border-radius:8px;
+display:none;
+cursor:pointer;
+}
+
 </style>
 </head>
 
 <body>
-<header>
-  <h1>Bean & Brown Cafe</h1>
-  <p>Freshly Roasted Coffee • Artisan Food • Cozy Vibes</p>
-  <div class="clock" id="clock"></div>
-  <button class="btn btn-secondary" onclick="toggleDark()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
-</header>
 
-<nav id="navbar">
-  <a href="#home" class="active">🏠 Home</a>
-  <a href="#menu">☕ Menu</a>
-  <a href="#reviews">⭐ Reviews</a>
-  <a href="#contact">📞 Contact</a>
+<div id="progress"></div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<section id="home" class="hero">
-  <h1>Welcome to Bean & Brown</h1>
-  <p>Experience the perfect blend of premium coffee and delicious bites in a warm, inviting atmosphere</p>
-  <button class="btn" onclick="orderNow()">🍽️ Order Now</button>
+<section class="hero">
+<h1>Bean & Brown Cafe</h1>
+<p>Premium Coffee • Delicious Food • Cozy Vibes</p>
+<button class="btn">Order Now</button>
 </section>
 
-<section class="section">
-  <h2>About Our Cafe</h2>
-  <p>
-    Nestled in the heart of Chobe Tola, Bean & Brown Cafe is your go-to spot for specialty coffee, 
-    mouthwatering snacks, and unforgettable moments with friends and family. 
-    Every cup is crafted with passion and every bite made with love.
-  </p>
+<section class="section" id="menu">
+
+<h2>Popular Menu</h2>
+
+<div class="menu">
+
+<div class="card">
+<h3>Cappuccino</h3>
+<p>₹120</p>
+</div>
+
+<div class="card">
+<h3>Cold Coffee</h3>
+<p>₹150</p>
+</div>
+
+<div class="card">
+<h3>Veg Burger</h3>
+<p>₹100</p>
+</div>
+
+<div class="card">
+<h3>Pizza</h3>
+<p>₹200</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="menu" class="section">
-  <h2>Our Menu</h2>
-  <p style="font-size: 1.1rem; color: #666; margin-bottom: 3rem;">Freshly prepared daily with the finest ingredients</p>
-  
-  <div class="menu">
-    <div class="menu-item">
-      <h3>☕ Cappuccino</h3>
-      <div class="price">₹120</div>
-      <p>Perfectly frothed milk with rich espresso</p>
-    </div>
-    <div class="menu-item">
-      <h3>🥤 Cold Coffee</h3>
-      <div class="price">₹150</div>
-      <p>Chilled perfection with vanilla ice cream</p>
-    </div>
-    <div class="menu-item">
-      <h3>🍔 Veg Burger</h3>
-      <div class="price">₹100</div>
-      <p>Juicy patty with fresh veggies & sauce</p>
-    </div>
-    <div class="menu-item">
-      <h3>🍕 Pizza</h3>
-      <div class="price">₹200</div>
-      <p>Cheese-loaded thin crust delight</p>
-    </div>
-  </div>
+<section class="stats">
+
+<div class="stat">
+<h3>10K+</h3>
+<p>Happy Customers</p>
+</div>
+
+<div class="stat">
+<h3>25+</h3>
+<p>Coffee Types</p>
+</div>
+
+<div class="stat">
+<h3>4.8★</h3>
+<p>Google Rating</p>
+</div>
+
+<div class="stat">
+<h3>5 Years</h3>
+<p>Experience</p>
+</div>
+
 </section>
 
-<section id="reviews" class="section">
-  <h2>What Our Customers Say</h2>
-  <div class="reviews-container">
-    <div class="review" id="reviewText">"Best coffee in the city!"</div>
-    <div style="font-size: 0.9rem; opacity: 0.8;">— Happy Customer</div>
-  </div>
+<section class="section" id="gallery">
+
+<h2>Cafe Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31">
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+<img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814">
+
+</div>
+
 </section>
 
-<section id="contact" class="section">
-  <h2>Visit Us Today</h2>
-  <div class="contact-info">
-    <div class="contact-item">
-      <strong>📍 Location</strong>
-      <p>Chobe Tola, Infront of<br>Anandeshwer Mahadev Mandir</p>
-    </div>
-    <div class="contact-item">
-      <strong>📞 Contact</strong>
-      <p>+91 700749XXXX</p>
-    </div>
-    <div class="contact-item">
-      <strong>🕒 Hours</strong>
-      <p>Mon-Sun: 8AM - 11PM</p>
-    </div>
-  </div>
+<section class="section" id="contact">
+
+<h2>Reserve a Table</h2>
+
+<form>
+
+<input placeholder="Your Name">
+
+<input placeholder="Phone">
+
+<input type="date">
+
+<textarea placeholder="Special request"></textarea>
+
+<button class="btn">Reserve</button>
+
+</form>
+
 </section>
 
 <footer>
-  <p>&copy; 2026 Bean & Brown Cafe. Made with ☕ in Bengaluru</p>
+
+<p>© 2026 Bean & Brown Cafe</p>
+<p>Made with ☕</p>
+
 </footer>
 
+<div class="whatsapp">💬</div>
+
+<button id="topBtn">↑</button>
+
 <script>
-const reviews = [
-  "Best coffee in the city! Absolutely love the ambiance.",
-  "Amazing atmosphere and friendly staff. Perfect for work or dates!",
-  "The veg burger is very delicious! Highly recommended.",
-  "Perfect place for friends meetup. Will visit again!",
-  "Cold coffee was perfection. Great value for money!"
-];
 
-let currentReview = 0;
+/* Scroll progress */
 
-// Live Clock
-function updateClock() {
-  const now = new Date();
-  const time = now.toLocaleTimeString('en-IN', { 
-    hour12: true, 
-    hour: '2-digit', 
-    minute: '2-digit' 
-  });
-  document.getElementById("clock").innerText = `🕒 ${time}`;
-}
-setInterval(updateClock, 1000);
-updateClock();
+window.onscroll=function(){
 
-// Dark Mode
-function toggleDark() {
-  document.body.classList.toggle('dark');
-  localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+let winScroll=document.body.scrollTop || document.documentElement.scrollTop;
+
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+
+let scrolled=(winScroll/height)*100;
+
+document.getElementById("progress").style.width=scrolled+"%";
+
+
+/* Top button */
+
+if(winScroll>400){
+document.getElementById("topBtn").style.display="block";
+}else{
+document.getElementById("topBtn").style.display="none";
 }
 
-// Load saved theme
-if (localStorage.getItem('darkMode') === 'true') {
-  document.body.classList.add('dark');
+};
+
+document.getElementById("topBtn").onclick=function(){
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
-// Smooth scrolling & active nav
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    target.scrollIntoView({ behavior: 'smooth' });
-    
-    // Update active nav
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-// Review slider
-function nextReview() {
-  currentReview = (currentReview + 1) % reviews.length;
-  document.getElementById('reviewText').textContent = reviews[currentReview];
-}
-setInterval(nextReview, 4000);
-
-// Order function
-function orderNow() {
-  const name = prompt('What would you like to order? ☕');
-  if (name) {
-    alert(`Thank you for your order: "${name}"! Your coffee is being prepared. ⏳`);
-  }
-}
-
-// Intersection Observer for animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-});
-
-// Observe menu items
-document.querySelectorAll('.menu-item').forEach(item => {
-  item.style.opacity = '0';
-  item.style.transform = 'translateY(20px)';
-  item.style.transition = 'all 0.6s ease';
-  observer.observe(item);
-});
 </script>
+
 </body>
 </html>
