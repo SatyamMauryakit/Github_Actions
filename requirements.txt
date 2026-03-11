@@ -1,3 +1,4 @@
-flask
+flask=3.1.0
 Werkzeug
 flake8
+bandit

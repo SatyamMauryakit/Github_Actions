@@ -1,0 +1,2 @@
+# Scan the docker file for issues & CVEs 
+name: Docker scan
