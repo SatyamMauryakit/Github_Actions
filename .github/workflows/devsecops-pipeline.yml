@@ -28,7 +28,7 @@ jobs:
     secrets: inherit
 
 # deploy to the server
-    deploy:
+    deploy-server:
      needs: [trivy-scan]
      uses: ./.github/workflows/deploy-server.yml
      secrets: inherit
