@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SSH to Pro server
-        uses: appleboy/ssh-action@1.2.5
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_SSH_HOST }}
           username: ${{ secrets.EC2_SSH_USERNAME }}
