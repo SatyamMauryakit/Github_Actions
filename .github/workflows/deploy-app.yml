@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy with Docker Compose
-        run: docker compose down && docker compose up -d --build --force-recreate
+        run: docker compose down && docker-compose up -d --build --force-recreate
